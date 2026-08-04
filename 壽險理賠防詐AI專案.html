@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>壽險理賠防詐 AI 專案｜顧問式交付文件</title>
+<style>
+:root {
+  --navy:#0b1f33; --navy2:#132f4c; --blue:#1f5f99; --gold:#c7a24a;
+  --ink:#17212b; --muted:#6b7785; --bg:#eef2f6; --card:#fff; --line:#d9e1e8;
+  --soft:#f7f9fb; --high:#b63737; --med:#a26c12;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei","Noto Sans TC","PingFang TC",Arial,sans-serif;line-height:1.72}
+.topbar{position:sticky;top:0;z-index:30;height:64px;background:rgba(11,31,51,.97);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar .brand{font-size:15px;font-weight:800;letter-spacing:.04em}
+.topbar .actions{display:flex;gap:10px}
+.btn{border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr)}
+.sidebar{position:sticky;top:64px;height:calc(100vh - 64px);overflow:auto;background:#0f263e;color:#fff;padding:28px 20px}
+.sidebar .eyebrow{color:#ddc37b;font-size:11px;letter-spacing:.16em;font-weight:800;margin-bottom:16px}
+.sidebar nav a{display:flex;gap:12px;color:#d8e1ea;text-decoration:none;padding:9px 10px;border-radius:8px;font-size:13px}
+.sidebar nav a span{color:#d9bd6b;font-weight:800;min-width:24px}
+.sidebar nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+main{max-width:1280px;width:100%;margin:0 auto;padding:38px 42px 80px}
+.hero{background:linear-gradient(135deg,#0b1f33 0%,#163b60 100%);color:#fff;border-radius:20px;padding:58px 56px;position:relative;overflow:hidden;box-shadow:0 18px 50px rgba(11,31,51,.18)}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;right:-90px;top:-120px;background:rgba(199,162,74,.13)}
+.hero .overline{font-size:12px;font-weight:800;letter-spacing:.17em;color:#ead79f}
+.hero h1{font-size:40px;line-height:1.25;margin:14px 0 14px;max-width:820px}
+.hero p{color:#d6e2ee;max-width:820px;font-size:17px}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.hero-meta span{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 11px;font-size:12px}
+.chapter{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 38px;margin:26px 0;box-shadow:0 8px 24px rgba(18,43,67,.05)}
+.chapter-kicker{color:var(--gold);font-size:11px;letter-spacing:.16em;font-weight:900}
+h2{font-size:27px;line-height:1.35;margin:5px 0 22px;color:var(--navy);padding-bottom:12px;border-bottom:2px solid #e8edf2}
+h3{font-size:21px;color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin:30px 0 14px}
+h4{font-size:16px;color:#2a4661;margin:22px 0 8px}
+p{margin:8px 0 16px} ul,ol{margin:8px 0 18px 22px;padding-left:14px} li{margin:5px 0}
+strong{color:var(--navy2)}
+.insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0 20px}
+.insight-card{border:1px solid var(--line);background:var(--soft);border-radius:12px;padding:18px}
+.metric{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-weight:800;font-size:12px}
+.insight-card h4{margin:12px 0 4px;color:var(--navy)} .insight-card p{font-size:13px;color:var(--muted);margin:0}
+.key-message{background:#fff8e8;border-left:5px solid var(--gold);padding:16px 18px;border-radius:8px;margin:18px 0}
+.consulting-panel{border:1px solid var(--line);border-radius:12px;padding:18px;margin:12px 0 20px;background:#fafbfd}
+.panel-title{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.priority-row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #e7edf2}
+.priority-row:last-child{border-bottom:0} .priority-row small{display:block;color:var(--muted);margin-top:2px}
+.badge{display:inline-block;min-width:48px;text-align:center;color:#fff;border-radius:6px;padding:4px 6px;font-size:10px;font-weight:900}
+.badge.high{background:var(--high)} .badge.med{background:var(--med)}
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.roadmap-step{position:relative;background:#f7f9fb;border:1px solid var(--line);border-radius:12px;padding:18px}
+.roadmap-step span{font-size:11px;font-weight:900;color:var(--gold);letter-spacing:.08em}
+.roadmap-step h4{margin:8px 0 6px;color:var(--navy)} .roadmap-step p{font-size:13px;color:var(--muted);margin:0}
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dashboard-card{background:linear-gradient(180deg,#fff,#f7f9fb);border:1px solid var(--line);border-radius:12px;padding:18px}
+.dashboard-card h4{margin:0 0 8px} .dashboard-card p{font-size:13px;color:var(--muted);margin:0}
+.deliverables{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.deliverables div{display:flex;gap:12px;align-items:center;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.deliverables strong{display:inline-flex;width:32px;height:32px;border-radius:8px;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:11px}
+.executive-summary{border-left:5px solid var(--gold);background:#fbf8f0;padding:18px 22px;border-radius:8px}
+.callout{padding:18px 20px;border-radius:10px;margin:18px 0;border:1px solid #ead8a7;background:#fffaf0}
+.callout-label{font-size:12px;color:#8a5a13;font-weight:800;letter-spacing:.08em;margin-bottom:5px}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:18px;border:1px dashed #b8c6d6;background:#f8fafc;border-radius:10px}
+.flow-step{background:#fff;border:1px solid #cfd8e2;padding:8px 11px;border-radius:8px;font-size:13px;font-weight:700;color:var(--navy2)}
+.flow-arrow{color:var(--gold);font-weight:900}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 4px}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.sidebar{position:relative;top:0;height:auto}.insight-grid,.dashboard-grid,.roadmap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){main{padding:22px 14px 50px}.hero{padding:38px 24px}.hero h1{font-size:30px}.chapter{padding:26px 20px}.insight-grid,.dashboard-grid,.roadmap,.deliverables{grid-template-columns:1fr}.topbar{padding:0 14px}}
+@media print{.topbar,.sidebar{display:none}.layout{display:block}body{background:#fff}main{max-width:none;padding:0}.hero{box-shadow:none;border-radius:0;page-break-after:always}.chapter{box-shadow:none;border:0;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">LIFE INSURANCE · CLAIMS FRAUD AI</div>
+  <div class="actions"><button class="btn" onclick="window.print()">列印／另存 PDF</button></div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="eyebrow">PROJECT DELIVERY DOCUMENT</div>
+    <nav><a href="#toc-1"><span>01</span>一、整個專案目的</a><a href="#toc-2"><span>02</span>二、整個專案最大的工作</a><a href="#toc-3"><span>03</span>三、專案關鍵議題</a><a href="#toc-4"><span>04</span>三之一、關鍵議題詳細說明</a><a href="#toc-5"><span>05</span>四、建議交付路徑</a><a href="#toc-6"><span>06</span>五、聯邦式學習與技術架構</a><a href="#toc-7"><span>07</span>六、端到端執行流程</a><a href="#toc-8"><span>08</span>七、專案執行與管理</a><a href="#toc-9"><span>09</span>八、關鍵觀察與管理重點</a><a href="#toc-10"><span>10</span>九、治理與管理儀表板建議</a><a href="#toc-11"><span>11</span>十、建議交付物清單</a></nav>
+  </aside>
+  <main>
+    <section class="hero">
+      <div class="overline">PROJECT ANALYSIS & DELIVERY FRAMEWORK</div>
+      <h1>壽險理賠防詐 AI 專案</h1>
+      <p>涵蓋專案目標、資料治理、主附約映射、ETL、Feature Pipeline、聯邦式學習、模型治理與交付路徑。</p>
+      <div class="hero-meta"><span>Version 1.0</span><span>Consulting-style Deliverable</span><span>Traditional Chinese</span></div>
+    </section>
+     <section class="chapter" id="s2-一-整個專案目的"><div class="chapter-kicker">SECTION</div><h2 id="toc-1">一、整個專案目的</h2>
+<div class="insight-grid">
+  <div class="insight-card"><span class="metric">01</span><h4>統一標準</h4><p>建立一致的 Label、Feature 與資料治理口徑。</p></div>
+  <div class="insight-card"><span class="metric">02</span><h4>資料不出域</h4><p>透過聯邦式學習交換模型參數，而非原始資料。</p></div>
+  <div class="insight-card"><span class="metric">03</span><h4>可追溯治理</h4><p>強化 Data Lineage、版本管理與模型說明能力。</p></div>
+  <div class="insight-card"><span class="metric">04</span><h4>可持續營運</h4><p>建立可重跑、可監控、可版本化的 Feature Pipeline。</p></div>
+</div>
+<div class="key-message"><strong>核心判斷：</strong>本專案的成敗，主要取決於資料標準、資料品質、模型粒度及跨機構協作，而非單一演算法選擇。</div>
+<div class="executive-summary"><p>本專案目標並非建立單一公司的理賠防詐模型，而是建立台灣壽險業共同參與之聯邦式學習(<strong>Federated Learning</strong>)防詐平台。<br>核心目標：</p><ul><li>建立跨公司一致的理賠防詐模型。</li><li>建立統一的Y(Label)定義。</li><li>建立共同Feature(X)設計原則。</li><li>建立資料治理(<strong>Data Governance</strong>)標準。</li><li>在資料不出域前提下提升整體辨識能力。</li></ul><p>專案成功關鍵：不是演算法，而是資料標準一致、治理完整及跨公司合作。</p></div></section><section class="chapter" id="s3-二-整個專案最大的工作"><div class="chapter-kicker">SECTION</div><h2 id="toc-2">二、整個專案最大的工作</h2><p>(1) Label(Y)定義</p><ul><li>統一採「實質拒賠(實質不給付)」。</li><li>建立一致貼標流程。</li><li>解決各公司拒賠代碼差異。</li></ul><p>(2) <strong>Data Governance</strong></p><ul><li>歷史資料盤點(建議5年)</li><li>資料品質檢查</li><li>主鍵一致性</li><li>缺漏值、異常值管理</li><li>Metadata與Data Dictionary建立</li></ul><p>(3) Feature Engineering<br>可能特徵：</p><ul><li>保單：商品、主附約、生效日、繳費年期</li><li>被保人：年齡、性別、職業、保額</li><li>理賠：金額、次數、疾病碼、手術碼、住院天數</li><li>醫療：醫院、科別、醫師、診療項目</li><li>行為：短期多次申請、跨院所、重複診療等</li></ul><p>(4) 聯邦式學習<br>各公司本地訓練→<strong>Flower</strong>協調→SageMaker聚合→新版模型發布。</p></section><section class="chapter" id="s4-三-專案關鍵議題"><div class="chapter-kicker">SECTION</div><h2 id="toc-3">三、專案關鍵議題</h2>
+<div class="consulting-panel">
+  <div class="panel-title">管理視角</div>
+  <div class="priority-row"><span class="badge high">HIGH</span><div><strong>Label 與模型粒度</strong><small>需先確定一筆資料代表案件、附約或給付項目。</small></div></div>
+  <div class="priority-row"><span class="badge high">HIGH</span><div><strong>主附約與理賠項目映射</strong><small>避免主約結果錯誤覆蓋所有附約。</small></div></div>
+  <div class="priority-row"><span class="badge med">MED</span><div><strong>歷史資料與 ETL 可用性</strong><small>確認近五年資料品質、時間窗與重跑能力。</small></div></div>
+</div>
+<ol><li>主約層級理賠代碼映射。</li><li>理賠資料完整性。</li><li>ETL流程是否可支援模型欄位。</li><li>是否可追溯完整理賠生命週期。</li><li>建立可重複更新<strong>Feature Pipeline</strong>。</li></ol></section><section class="chapter" id="s5-三之一-關鍵議題詳細說明"><div class="chapter-kicker">SECTION</div><h2 id="toc-4">三之一、關鍵議題詳細說明</h2><article class="topic" id="s6-1-主約層級理賠代碼映射"><h3>1. 主約層級理賠代碼映射</h3></article><h4 id="s7-問題本質">問題本質</h4><p>保險契約通常包含一張主約與多張附約。實際理賠可能由特定附約觸發，但理賠狀態、拒賠代碼或調查結果可能僅記錄於主約層級。若直接把主約結果套用至所有附約，容易造成錯誤貼標、重複計算或無法辨識真正異常的保障責任。</p><h4 id="s8-典型風險情境">典型風險情境</h4><ul><li>實際僅醫療附約拒賠，但主約與其他附約均被標記為拒賠。</li><li>同一理賠案件同時存在給付、部分給付及拒賠，卻被簡化為單一結果。</li><li>拒賠原因只存在於人工備註，結構化欄位無法對應到具體附約或給付項目。</li><li>舊系統與新系統的代碼定義不同，造成歷史資料口徑不一致。</li></ul><h4 id="s9-必要映射關係">必要映射關係</h4><p>保單號碼 → 主約號碼 → 附約號碼 → 理賠案件號碼 → 理賠申請項目 → 給付責任 → 理賠決定 → 拒賠原因。</p><h4 id="s10-建議建立的標準欄位">建議建立的標準欄位</h4><p>Policy_ID、Main_Contract_ID、Rider_ID、Claim_ID、Claim_Item_ID、Coverage_Code、Claim_Result_Code、Denial_Reason_Code、Investigation_Flag、Substantive_Denial_Flag。</p><h4 id="s11-應追蹤">應追蹤</h4><ol><li>理賠結果實際記錄於案件層、保單層、主約層或給付項目層。</li><li>一個 Claim_ID 是否可對應多張附約。</li><li>同一案件是否可能同時存在給付、部分給付與拒賠。</li><li>拒賠原因是否能對應到具體附約與保障責任。</li><li>歷史系統與現行系統的代碼是否一致。</li><li>無法映射案件的比例、原因與處理規則。</li></ol><h4 id="s12-建議驗收標準">建議驗收標準</h4><ul><li>每筆模型資料可追溯至具體理賠案件與保障責任。</li><li>不以主約結果錯誤覆蓋所有附約。</li><li>部分給付案件具備明確貼標規則。</li><li>無法映射案件須量化並建立例外處理。</li><li>可設定參考 KPI：主附約映射成功率 ≥99%、理賠項目映射成功率 ≥98%、拒賠原因可辨識率 ≥95%。實際門檻仍應依各公司資料現況核定。</li></ul><article class="topic" id="s13-2-理賠資料完整性"><h3>2. 理賠資料完整性</h3></article><h4 id="s14-問題本質">問題本質</h4><p>模型不只需要最終理賠結果，也需要完整的保單、被保人、理賠申請、醫療明細、調查過程、核賠決定、拒賠原因及歷史行為資料。資料存在不代表可用，還必須檢查欄位、案件、歷史期間、邏輯及跨表關聯是否完整。</p><h4 id="s15-五個完整性面向">五個完整性面向</h4><ol><li>欄位完整性：必要欄位是否存在，且非空率是否達標。</li><li>案件完整性：申請、醫療明細、調查、核賠與結案資料能否完整串接。</li><li>歷史期間完整性：近五年各年度的欄位品質是否一致，是否有系統轉換斷層。</li><li>邏輯完整性：日期、金額、住院天數、拒賠結果等是否符合業務邏輯。</li><li>跨表關聯完整性：Claim_ID、Policy_ID、Rider_ID、Hospital_Code、Diagnosis_Code 是否有孤兒資料。</li></ol><h4 id="s16-建議建立-Data-Quality-Report">建議建立 Data Quality Report</h4><p>至少涵蓋 Completeness、Uniqueness、Validity、Consistency、Timeliness、Integrity 六類指標，並以年度、來源系統、商品、案件狀態及欄位分層檢視。</p><h4 id="s17-專案管理重點">專案管理重點</h4><p>需明確區分：可直接使用欄位、需清洗欄位、僅能當輔助欄位，以及不適合進入模型的欄位；並建立缺值處理、異常值處理、資料排除與補值規則。</p><article class="topic" id="s18-3-ETL-流程是否可支援模型欄位"><h3>3. ETL 流程是否可支援模型欄位</h3></article><h4 id="s19-問題本質">問題本質</h4><p>現有 ETL 多以營運報表為目的，通常只產出案件數、理賠金額、拒賠件數及處理天數等彙總資訊；模型則需要更細的時間窗口、歷史行為與關聯特徵，因此必須確認既有 ETL 是否能支援多來源整合、歷史聚合、時間點正確性、增量更新及可重跑。</p><h4 id="s20-模型可能需要的衍生欄位">模型可能需要的衍生欄位</h4><ul><li>過去 30／90／180／365 日理賠次數與累計金額。</li><li>相同醫院、醫師或診療項目的歷史拒賠率。</li><li>保單生效日至首次理賠天數。</li><li>被保人跨院所、跨商品或短期重複申請次數。</li><li>同一事件對應多張附約或多項給付的聚合特徵。</li></ul><h4 id="s21-ETL-必備能力">ETL 必備能力</h4><ol><li>多來源整合：保單、理賠、醫療明細、調查、客戶、商品及院所主檔。</li><li>防止 <strong>Data Leakage</strong>：只能使用預測時間點以前已知的資訊。</li><li>歷史窗口計算：支援不同觀察期間與截至日。</li><li>可重跑與一致性：同一輸入、同一版本產生相同結果。</li><li>增量更新：支援 Full Load、Incremental Load、Backfill 與 Reprocessing。</li></ol><h4 id="s22-應要求的文件">應要求的文件</h4><p>Source-to-Target Mapping、ETL 規格書、Feature Definition Document、<strong>Data Lineage</strong>、批次依賴圖、錯誤處理與重跑機制、欄位驗證規則及上下游影響分析。</p><article class="topic" id="s23-4-是否可追溯完整理賠生命週期"><h3>4. 是否可追溯完整理賠生命週期</h3></article><h4 id="s24-問題本質">問題本質</h4><p>理賠案件並非只有申請與結案兩個狀態，而是由事故發生、申請、收件、補件、初審、發查、調查、核賠、給付或拒賠、申訴、覆核及最終結案等事件構成。若僅保存最終狀態，將無法還原決策過程、判斷特徵生成時間或說明模型預測。</p><h4 id="s25-建議生命週期事件">建議生命週期事件</h4><p>事故發生 → 理賠申請 → 文件收件 → 文件補件 → 初步審核 → 發查 → 調查進行 → 調查結果 → 核賠決策 → 給付／部分給付／拒賠 → 申訴 → 覆核 → 最終結案。</p><h4 id="s26-建議建立-Claim-Event-Table">建議建立 Claim Event Table</h4><p>主要欄位包括 Claim_ID、Event_Type、Event_Time、Event_Result、Operator_Unit、Source_System、Event_Version。以事件表保存每次狀態變更，可支援案件時序分析、流程瓶頸分析與稽核追溯。</p><h4 id="s27-需先明確定義的複雜情況">需先明確定義的複雜情況</h4><ul><li>一案多次決策：初次拒賠後申訴改判，Y 應採初次、最終或申訴後結果。</li><li>一案多項給付：同一案件部分給付、部分拒賠，需決定模型粒度。</li><li>案件重開或補件：需區分新事件、舊事件及狀態覆蓋。</li><li>多系統時間戳：需統一時區、格式與事件先後順序。</li></ul><h4 id="s28-追溯能力驗收">追溯能力驗收</h4><p>任一模型預測結果應能追溯至 Feature 數值、計算邏輯、ETL 批次、來源欄位、原始理賠案件及預測當時的案件狀態。此能力是模型治理、稽核、申訴處理與模型說明的重要基礎。</p><article class="topic" id="s29-5-建立可重複更新的-Feature-Pipeline"><h3>5. 建立可重複更新的 Feature Pipeline</h3></article><h4 id="s30-問題本質">問題本質</h4><p><strong>Feature Pipeline</strong> 不是一次性產出訓練資料，而是建立可持續執行、可版本化、可監控、可重跑的特徵生產流程。聯邦式學習更要求各公司在欄位名稱、資料型態、單位、時間窗口、缺值處理及類別編碼上維持一致。</p><h4 id="s31-建議資料層次">建議資料層次</h4><p>Raw Layer（原始資料） → Standardized Layer（格式與代碼標準化） → Curated Layer（清洗與關聯） → Feature Layer（衍生及聚合特徵） → Training Dataset（訓練資料） → Batch／Online Scoring Dataset（評分資料）。</p><h4 id="s32-每個-Feature-應具備的定義">每個 Feature 應具備的定義</h4><p>Feature Name、中文名稱、商業定義、計算公式、資料粒度、觀察窗口、排除條件、Null 處理、更新頻率、來源欄位、負責單位、版本及生效日期。</p><h4 id="s33-企業級能力要求">企業級能力要求</h4><ol><li>版本管理：Feature 變更不得直接覆蓋舊版，模型須記錄所使用版本。</li><li>自動化測試：檢查欄位缺失、型態變更、Null率、資料量、重複鍵與分布漂移。</li><li>訓練與評分一致：避免 <strong>Training-Serving Skew</strong>。</li><li>節點一致性：各參與公司需使用一致欄位口徑與轉換規則。</li><li>監控及重跑：具備排程、日誌、失敗告警、補數與重算機制。</li></ol><h4 id="s34-管理清單">管理清單</h4><p>Feature Catalog、Feature Definition、Version Control、Data Quality、<strong>Data Lineage</strong>、Refresh SLA、Failure Handling、Access Control、Node Consistency。</p><article class="topic" id="s35-五項議題的管理優先順序"><h3>五項議題的管理優先順序</h3></article><h4 id="s36-建議執行順序">建議執行順序</h4><ol><li>確認模型粒度與 Y 定義。</li><li>完成主約、附約、案件及給付項目映射。</li><li>盤點資料完整性與歷史可用期間。</li><li>建立理賠生命週期及 <strong>Data Lineage</strong>。</li><li>設計 Feature 與 ETL 規格。</li><li>建立可重跑、可監控、可版本化的 <strong>Feature Pipeline</strong>。</li></ol><h4 id="s37-核心決策">核心決策</h4><div class="callout critical"><div class="callout-label">核心決策</div><p>模型的一筆資料究竟代表一個理賠案件、一張附約，還是一個給付項目，必須在資料盤點與 Feature 設計前先確定。若粒度未先定義，後續 Y 貼標、主附約映射、ETL、Feature 及模型評估都可能反覆重做。</p></div></section>
+<section class="chapter" id="delivery-roadmap">
+  <div class="chapter-kicker">DELIVERY ROADMAP</div>
+  <h2 id="toc-5">四、建議交付路徑</h2>
+  <div class="roadmap">
+    <div class="roadmap-step"><span>Phase 1</span><h4>定義與盤點</h4><p>確認 Y、模型粒度、資料期間與主附約映射。</p></div>
+    <div class="roadmap-step"><span>Phase 2</span><h4>治理與整合</h4><p>建立 Data Dictionary、Mapping Rule、DQ Rule 與 Data Lineage。</p></div>
+    <div class="roadmap-step"><span>Phase 3</span><h4>特徵與建模</h4><p>完成 Feature Definition、ETL、Local Training 與模型驗證。</p></div>
+    <div class="roadmap-step"><span>Phase 4</span><h4>聯邦與部署</h4><p>完成 Flower 協調、SageMaker 聚合、版本管理與節點監控。</p></div>
+    <div class="roadmap-step"><span>Phase 5</span><h4>營運與優化</h4><p>持續監控資料品質、模型成效、漂移與重訓週期。</p></div>
+  </div>
+</section>
+<section class="chapter" id="s38-四-AWS與技術架構"><div class="chapter-kicker">SECTION</div><h2 id="toc-6">五、聯邦式學習與技術架構</h2><p><strong>Flower</strong>：聯邦式學習協調器。<br><strong>AWS SageMaker</strong>：模型訓練、版本管理、部署。<br>各公司：</p><ul><li>Local Training</li><li>不上傳原始資料</li><li>僅交換Model Weight</li></ul><p>另需建立：</p><ul><li>TLS加密</li><li>Firewall</li><li>Log</li><li>Monitoring</li><li>Model Registry</li><li>MLOps流程。</li></ul></section><section class="chapter" id="s39-五-未來完整流程"><div class="chapter-kicker">SECTION</div><h2 id="toc-7">六、端到端執行流程</h2><div class="flow"><span class="flow-step">需求確認</span><span class="flow-arrow">↓</span><span class="flow-step">資料盤點</span><span class="flow-arrow">↓</span><span class="flow-step">Data Mapping</span><span class="flow-arrow">↓</span><span class="flow-step">ETL</span><span class="flow-arrow">↓</span><span class="flow-step">Data Quality</span><span class="flow-arrow">↓</span><span class="flow-step">Label</span><span class="flow-arrow">↓</span><span class="flow-step">Feature Engineering</span><span class="flow-arrow">↓</span><span class="flow-step">Local Model Training</span><span class="flow-arrow">↓</span><span class="flow-step">Federated Aggregation</span><span class="flow-arrow">↓</span><span class="flow-step">Model Validation</span><span class="flow-arrow">↓</span><span class="flow-step">Model Deployment</span><span class="flow-arrow">↓</span><span class="flow-step">Monitoring</span><span class="flow-arrow">↓</span><span class="flow-step">持續迭代</span></div></section><section class="chapter" id="s40-六-實際工作"><div class="chapter-kicker">SECTION</div><h2 id="toc-8">七、專案執行與管理</h2><p>專案管理：</p><ul><li>WBS、時程、風險、議題追蹤</li><li>跨部門(理賠、IT、AI、資安、AWS)</li></ul><p>資料管理：</p><ul><li>Data Dictionary</li><li>Mapping Rule</li><li>ETL驗證</li><li>Data Quality KPI</li></ul><p>AI管理：</p><ul><li>Feature審查</li><li>模型版本管理</li><li>Precision / Recall / F1 / AUC追蹤</li><li>Explainable AI(SHAP)</li></ul><p>管理儀表板：</p><ul><li>專案進度</li><li>資料完成率</li><li>建模完成率</li><li>模型效能</li><li>聯邦節點狀態</li></ul></section><section class="chapter" id="s41-七-角度的重要觀察"><div class="chapter-kicker">SECTION</div><h2 id="toc-9">八、關鍵觀察與管理重點</h2><p>真正的瓶頸通常不是AI，而是：</p><ol><li>各公司資料定義不同。</li><li>拒賠原因缺乏一致標準。</li><li>Feature口徑不同。</li><li>ETL品質影響模型效果。</li><li>聯邦節點版本一致性。</li><li>模型治理(Model Governance)。</li><li>跨公司協調效率。</li></ol><p>建議持續深化：</p><ul><li><strong>Data Governance</strong></li><li>Feature Store</li><li>MLOps</li><li><strong>Federated Learning</strong></li><li>Explainable AI</li><li>專案治理(PMBOK/Agile)</li><li>Power BI專案監控Dashboard。</li></ul></section> 
+<section class="chapter" id="governance-dashboard">
+  <div class="chapter-kicker">MANAGEMENT VIEW</div>
+  <h2 id="toc-10">九、治理與管理儀表板建議</h2>
+  <div class="dashboard-grid">
+    <div class="dashboard-card"><h4>資料治理</h4><p>欄位完整率、主鍵唯一率、孤兒資料率、映射成功率。</p></div>
+    <div class="dashboard-card"><h4>模型效能</h4><p>Precision、Recall、F1、AUC、命中率與誤報率。</p></div>
+    <div class="dashboard-card"><h4>平台維運</h4><p>節點狀態、訓練成功率、模型版本、失敗重試與日誌。</p></div>
+    <div class="dashboard-card"><h4>專案進度</h4><p>WBS、里程碑、風險、議題、決策與交付物完成率。</p></div>
+  </div>
+</section>
+<section class="chapter" id="deliverables">
+  <div class="chapter-kicker">KEY DELIVERABLES</div>
+  <h2 id="toc-11">十、建議交付物清單</h2>
+  <div class="deliverables">
+    <div><strong>01</strong><span>Y 定義與模型粒度決策文件</span></div>
+    <div><strong>02</strong><span>Source-to-Target Mapping</span></div>
+    <div><strong>03</strong><span>Data Dictionary 與 Data Quality Report</span></div>
+    <div><strong>04</strong><span>Feature Definition Document</span></div>
+    <div><strong>05</strong><span>ETL 規格、批次依賴與重跑機制</span></div>
+    <div><strong>06</strong><span>Data Lineage 與 Claim Event Table 設計</span></div>
+    <div><strong>07</strong><span>聯邦式學習架構與節點操作規範</span></div>
+    <div><strong>08</strong><span>模型驗證、版本管理與監控報告</span></div>
+  </div>
+</section>
+
+    <div class="footer">本文件依既有專案內容重新編排，供資料治理、模型設計、技術架構與專案規劃參考。</div>
+  </main>
+</div>
+</body>
+</html>
